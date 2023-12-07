@@ -1,20 +1,31 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <X></X>
-    <Y></Y>
+    <!-- 这里 price加上:之后，后面变成表达式，20就变成常量数字 -->
+    <Car brand="宝马" :price="20" color="哈哈"></Car>
+    <hr>
+    <Car brand="奔驰" :price="100" ></Car>
+    <hr>
+    {{ count }}<button @click="test">测试，点我的话，价格会复原</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import X from './components/X.vue'
-import Y from './components/Y.vue'
+import Car from './components/Car.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld,X,Y
+    Car
+  },
+  methods : {
+    test(){
+      this.count++
+    }
+  },
+  data(){
+    return{
+      count : 1
+    }
   }
 }
 </script>
