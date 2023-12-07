@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <!-- 这里 price加上:之后，后面变成表达式，20就变成常量数字 -->
-    <Car brand="宝马" :price="20" color="哈哈"></Car>
+    <Car brand="宝马" :price="20" color="哈哈" ref="car1"/>
     <hr>
     <Car brand="奔驰" :price="100" ></Car>
     <hr>
@@ -20,6 +19,9 @@ export default {
   methods : {
     test(){
       this.count++
+      // 获取子组件 1 指定ref属性 2 使用this.$refs.ref属性
+      console.log(this.$refs.car1);
+      console.log(this.$refs.car1.price);
     }
   },
   data(){
